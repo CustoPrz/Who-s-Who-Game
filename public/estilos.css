@@ -1,0 +1,397 @@
+@font-face {
+    font-family: Manga;
+    src: url(Manga.otf) format('opentype');
+    background: #000000;
+    background: linear-gradient(to left, #000000 0%, #FFFFFF 50%, #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes flip{
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+body {
+    font-family: 'Manga';
+    overflow-y: scroll;
+
+}
+
+.selected-character {
+    width: 150px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border: 2px dashed #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+
+
+
+h1 {
+    text-align: center;
+
+    font-size: 4.2em;
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #000000, #ea7171);
+    background: linear-gradient(to right, #000000, #ea7171);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 0.1px rgb(0, 0, 0);
+
+
+}
+
+#game-board {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4);
+
+
+    border-radius: 40px;
+
+}
+
+.card {
+    width: 90px;
+    height: 90px;
+    /* box-shadow: 0 5px 5px rgba(243, 59, 59, 0.468); */
+
+    margin: 5px;
+    background-color: #fff;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    
+}
+
+.card-flip {
+    transform: rotateY(180deg);
+}
+
+
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-image: url(background.png);
+    background-color: black;
+
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+}
+
+.background span {
+    z-index: -4;
+    width: 23vmin;
+    height: 23vmin;
+    border-radius: 23vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: move;
+    animation-duration: 22;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+.background span:nth-child(0) {
+    z-index: -8;
+    color: #ff0000;
+    top: 29%;
+    left: 50%;
+    animation-duration: 197s;
+    animation-delay: -274s;
+    transform-origin: 11vw -18vh;
+    box-shadow: 46vmin 0 5.800132345730503vmin currentColor;
+}
+
+.background span:nth-child(1) {
+    z-index: -6;
+    color: #c33232;
+    top: 15%;
+    left: 68%;
+    animation-duration: 149s;
+    animation-delay: -16s;
+    transform-origin: -11vw 15vh;
+    box-shadow: 46vmin 0 6.064261777460921vmin currentColor;
+}
+
+.background span:nth-child(2) {
+    z-index: -6;
+    color: #fbff00;
+    top: 32%;
+    left: 36%;
+    animation-duration: 63s;
+    animation-delay: -257s;
+    transform-origin: -1vw 12vh;
+    box-shadow: 46vmin 0 6.367730417218641vmin currentColor;
+}
+
+.background span:nth-child(3) {
+    z-index: -6;
+    color: #c33232;
+    top: 9%;
+    left: 94%;
+    animation-duration: 30s;
+    animation-delay: -241s;
+    transform-origin: -7vw -15vh;
+    box-shadow: -46vmin 0 6.076189417277959vmin currentColor;
+}
+
+.background span:nth-child(4) {
+    z-index: -6;
+    color: #ff0000;
+    top: 49%;
+    left: 5%;
+    animation-duration: 245s;
+    animation-delay: -143s;
+    transform-origin: -15vw -5vh;
+    box-shadow: -46vmin 0 6.092783929770345vmin currentColor;
+}
+
+.background span:nth-child(5) {
+    z-index: -6;
+    color: #ff0000;
+    top: 78%;
+    left: 93%;
+    animation-duration: 167s;
+    animation-delay: -164s;
+    transform-origin: 22vw 1vh;
+    box-shadow: -46vmin 0 6.238963852029861vmin currentColor;
+}
+
+.background span:nth-child(6) {
+    z-index: -6;
+    color: #fbff00;
+    top: 40%;
+    left: 49%;
+    animation-duration: 163s;
+    animation-delay: -280s;
+    transform-origin: -5vw 2vh;
+    box-shadow: -46vmin 0 6.413572580731762vmin currentColor;
+}
+
+.background span:nth-child(7) {
+    z-index: -6;
+    color: #fbff00;
+    top: 93%;
+    left: 10%;
+    animation-duration: 274s;
+    animation-delay: -98s;
+    transform-origin: -12vw -1vh;
+    box-shadow: 46vmin 0 5.755048063883013vmin currentColor;
+}
+
+.background span:nth-child(8) {
+    z-index: -6;
+    color: #c33232;
+    top: 8%;
+    left: 56%;
+    animation-duration: 150s;
+    animation-delay: -26s;
+    transform-origin: -9vw 10vh;
+    box-shadow: 46vmin 0 5.752297758611991vmin currentColor;
+}
+
+.background span:nth-child(9) {
+    z-index: -6;
+    color: #ff0000;
+    top: 69%;
+    left: 74%;
+    animation-duration: 281s;
+    animation-delay: -144s;
+    transform-origin: 15vw -4vh;
+    box-shadow: -46vmin 0 6.233841281562785vmin currentColor;
+}
+
+.background span:nth-child(10) {
+    z-index: -6;
+    color: #ff0000;
+    top: 49%;
+    left: 3%;
+    animation-duration: 133s;
+    animation-delay: -74s;
+    transform-origin: 25vw -6vh;
+    box-shadow: -46vmin 0 6.097294542085044vmin currentColor;
+}
+
+.background span:nth-child(11) {
+    z-index: -6;
+    color: #c33232;
+    top: 38%;
+    left: 11%;
+    animation-duration: 34s;
+    animation-delay: -265s;
+    transform-origin: -7vw 17vh;
+    box-shadow: -46vmin 0 6.021966433612182vmin currentColor;
+}
+
+.background span:nth-child(12) {
+    z-index: -6;
+    color: #c33232;
+    top: 88%;
+    left: 72%;
+    animation-duration: 51s;
+    animation-delay: -59s;
+    transform-origin: 6vw -1vh;
+    box-shadow: -46vmin 0 6.081392131977065vmin currentColor;
+}
+
+.background span:nth-child(13) {
+    z-index: -6;
+    color: #fbff00;
+    top: 34%;
+    left: 3%;
+    animation-duration: 166s;
+    animation-delay: -119s;
+    transform-origin: 9vw 8vh;
+    box-shadow: 46vmin 0 6.231268219798459vmin currentColor;
+}
+
+
+#chat-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+#chat-container {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#chat-input {
+    font-family: 'Manga';
+    width: calc(100% - 70px);
+    margin-right: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px; 
+}
+
+#send-button {
+    font-family: 'Manga';
+    width: 80px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+#send-button:hover {
+    background-color: #45a049;
+}
+#tutorial {
+    background-color: rgba(153, 145, 145, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#tutorial h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#tutorial ul {
+    list-style-type: disc;
+    font-size: 1.8em;
+    padding-left: 20px;
+}
+
+#tutorial p {
+    margin-bottom: 10px;
+}
+
+#start-button {
+    font-family: 'Manga';
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-button:hover {
+    background-color: #45a049;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 1;
+  }
+  
+  .selected-character-container {
+    margin: 20px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-character-container h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.character-slot {
+    width: 150px; 
+    height: 150px;
+    border: 2px dashed #ccc;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="estilos.css">
+  <title>Who's Who</title>
+
+
+  <script src="Lib/seedrandom.min.js">
+  </script>
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+  <script type="module" src="./scripts.js"></script>
+
+</head>
+
+<body>
+
+  <div class="background">
+
+    <h1>Who's Who? </h1>
+    <div id="game-board"></div>
+    <div id="sidebar">
+      <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Escribe un mensaje...">
+        <button id="send-button">Enviar</button>
+      </div>
+    
+      <div id="selected-character" class="selected-character-container">
+        <h3>Arrastra aquí tu personaje!!</h3>
+        <div id="character-slot" class="character-slot"></div>
+      </div>
+    </div>
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+</body>
+
+</html>
